@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers, RequestOptions } from "@angular/http";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'jokes-form',
@@ -35,14 +38,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JokesFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
 
   onJokeSubmit(title, content) {
+    this.http.get('https://jsonplaceholder.typicode.com/users/1')
+      .map(res => res.json())
+      // .subscribe(() => {
+      //   console.log('Ok');
+      // })
     console.log(title.value, content.value);
+    this.sendToServer(title.value, content.value)
+      .subscribe(res => console.log(res));
     title.value = '';
     content.value = '';
+  }
+
+  sendToServer(title, content) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post('http://localhost:8000/getJokes.php', { title, content }, options)
+                    // .map(res => res.text);
+                    // .do(() => { console.log('ok')})
+                    // .catch(this.handleError);
   }
 }
