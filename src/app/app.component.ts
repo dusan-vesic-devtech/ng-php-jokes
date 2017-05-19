@@ -9,11 +9,11 @@ import { Joke } from './joke';
 })
 export class AppComponent {
   title = 'app works!';
-  joke: Joke = {
-    title: 'my joke',
-    content: 'my joke content'
-  }
-
+  // joke: Joke = {
+  //   title: 'my joke',
+  //   content: 'my joke content'
+  // }
+  joke: Joke = {}
   setJoke(joke: Joke) {
     this.joke = joke;
     // console.log("Success setting");

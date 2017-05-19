@@ -5,7 +5,7 @@ import { Joke } from '../joke';
   selector: 'jokes-item',
   template: `
     <div>
-      jokes-item Works!!!
+      Display Joke:
       <div>
         {{ joke.title }}
         <hr>
