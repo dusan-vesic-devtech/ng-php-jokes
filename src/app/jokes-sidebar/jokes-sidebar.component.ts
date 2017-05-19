@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { JokesServiceService } from '../jokes-service';
+import { Joke } from "../joke";
 
 @Component({
   selector: 'jokes-sidebar',
@@ -9,7 +10,10 @@ import { JokesServiceService } from '../jokes-service';
       <table class="table">
         <thead></thead>
         <tbody>
-          <tr *ngFor="let joke of jokes"><td>{{joke.title}}</td></tr>
+          <tr *ngFor="let joke of jokes"
+              (click)="selectJoke(joke)"
+            >
+            <td>{{joke.title}}</td></tr>
         </tbody>
       </table>
     </div>
@@ -22,6 +26,7 @@ import { JokesServiceService } from '../jokes-service';
 })
 export class JokesSidebarComponent implements OnInit {
   jokes = <any>[];
+  @Output() ee: EventEmitter<Joke> = new EventEmitter<Joke>();
 
   constructor(private _jokesSerive: JokesServiceService) { }
 
@@ -29,4 +34,8 @@ export class JokesSidebarComponent implements OnInit {
     this.jokes = this._jokesSerive.getJokes();
   }
 
+  selectJoke(joke: Joke) {
+    console.log(joke);
+    this.ee.emit(joke)
+  }
 }

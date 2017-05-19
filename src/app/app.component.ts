@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Joke } from './joke';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  joke: Joke = {
+    title: 'my joke',
+    content: 'my joke content'
+  }
+
+  setJoke(joke: Joke) {
+    this.joke = joke;
+    // console.log("Success setting");
+  }
 }

@@ -2,10 +2,10 @@
   <jokes-header></jokes-header>
   <div class="columns">
     <div class="column is-one-third">
-      <jokes-sidebar></jokes-sidebar>
+      <jokes-sidebar (ee)="setJoke($event)"></jokes-sidebar>
     </div>
     <div class="column">
-      <jokes-item></jokes-item>
+      <jokes-item [joke]="joke"></jokes-item>
       <jokes-form></jokes-form>
     </div>
   </div>
