@@ -6,22 +6,18 @@ import { Http } from '@angular/http';
 @Component({
   selector: 'jokes-sidebar',
   template: `
-    <div>
-      Jokes List:
-      <table class="table">
-        <thead></thead>
-        <tbody>
-          <tr *ngFor="let joke of jokes"
-              (click)="selectJoke(joke)"
-            >
-            <td>{{joke.title}}</td></tr>
-        </tbody>
-      </table>
+    <div class="box">
+      <p class="menu-label">
+        All Jokes
+      </p>
+      <ul class="menu-list">
+        <li><a *ngFor="let joke of jokes" (click)="selectJoke(joke)">{{joke.title}}</a></li>
+      </ul>
     </div>
   `,
   styles: [`
-    div {
-      padding-left: 1em;
+    .box {
+      margin-left: 10%;
     }
   `]
 })
