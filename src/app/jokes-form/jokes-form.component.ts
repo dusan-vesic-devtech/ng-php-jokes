@@ -44,8 +44,8 @@ export class JokesFormComponent implements OnInit {
   }
 
   onJokeSubmit(title, content) {
-    this.http.get('https://jsonplaceholder.typicode.com/users/1')
-      .map(res => res.json())
+    // this.http.get('https://jsonplaceholder.typicode.com/users/1')
+    //   .map(res => res.json())
       // .subscribe(() => {
       //   console.log('Ok');
       // })
@@ -60,7 +60,7 @@ export class JokesFormComponent implements OnInit {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8000/getJokes.php', { title, content }, options)
+    return this.http.post('http://localhost:8000', { title, content }, options)
                     // .map(res => res.text);
                     // .do(() => { console.log('ok')})
                     // .catch(this.handleError);
