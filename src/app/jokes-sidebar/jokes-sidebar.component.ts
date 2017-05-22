@@ -1,12 +1,13 @@
-import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { JokesServiceService } from '../jokes-service';
 import { Joke } from "../joke";
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'jokes-sidebar',
   template: `
     <div>
-      jokes-sidebar Works!
+      Jokes List:
       <table class="table">
         <thead></thead>
         <tbody>
@@ -25,13 +26,15 @@ import { Joke } from "../joke";
   `]
 })
 export class JokesSidebarComponent implements OnInit {
-  jokes = <any>[];
+  @Input() jokes = <any>[];
   @Output() ee: EventEmitter<Joke> = new EventEmitter<Joke>();
 
-  constructor(private _jokesSerive: JokesServiceService) { }
+  constructor(
+    private _jokesSerive: JokesServiceService,
+    private http: Http
+  ) { }
 
   ngOnInit() {
-    this.jokes = this._jokesSerive.getJokes();
   }
 
   selectJoke(joke: Joke) {
