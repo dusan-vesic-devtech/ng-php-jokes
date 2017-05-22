@@ -6,12 +6,11 @@ import 'rxjs/add/operator/do';
 @Component({
   selector: 'jokes-form',
   template: `
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Enter joke:
-          </h1>
+      <article class="message is-primary">
+        <div class="message-header">
+          Enter joke bellow
+        </div>
+        <div class="message-body">
           <h2 class="subtitle">
             <div class="field">
               <label class="label">Title</label>
@@ -28,11 +27,9 @@ import 'rxjs/add/operator/do';
               </p>
             </div>
           </h2>
-          <a class="button is-success" (click)="onJokeSubmit(title, content)">Success</a>
+          <a class="button is-success" (click)="onJokeSubmit(title, content)">Submit</a>
         </div>
-      </div>
-    </section>
-    <div>
+      </article>
   `,
   styles: []
 })

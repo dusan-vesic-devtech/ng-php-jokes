@@ -4,16 +4,34 @@ import { Joke } from '../joke';
 @Component({
   selector: 'jokes-item',
   template: `
-    <div>
-      Display Joke:
-      <div>
-        {{ joke.title }}
-        <hr>
-        {{ joke.content }}
+    <article class="message is-success">
+      <div class="message-header">
+        <p>Select one from the left to display</p>
       </div>
-    </div>
+      <div class="message-body">
+        <div *ngIf="!joke.title">No Joke Selected</div>
+        <div *ngIf="joke.title" class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              {{joke.title}}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              {{joke.content}}
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item">upvote</a>
+            <a class="card-footer-item">downvote</a>
+          </footer>
+        </div>
+      </div>
+    </article>
   `,
-  styles: []
+  styles: [`
+    article { margin-bottom: 10%; }
+  `]
 })
 export class JokesItemComponent implements OnInit {
   @Input() joke;
