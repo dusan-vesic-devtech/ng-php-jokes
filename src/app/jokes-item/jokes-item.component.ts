@@ -4,7 +4,7 @@ import { Joke } from '../joke';
 @Component({
   selector: 'jokes-item',
   template: `
-    <article class="message is-success">
+    <article class="message is-primary">
       <div class="message-header">
         <p>Select one from the left to display</p>
       </div>

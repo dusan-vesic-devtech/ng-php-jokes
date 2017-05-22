@@ -27,7 +27,7 @@ import 'rxjs/add/operator/do';
               </p>
             </div>
           </h2>
-          <a class="button is-success" (click)="onJokeSubmit(title, content)">Submit</a>
+          <a class="button is-primary" (click)="onJokeSubmit(title, content)">Submit</a>
         </div>
       </article>
   `,
