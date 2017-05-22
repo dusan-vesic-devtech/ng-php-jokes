@@ -16,12 +16,11 @@ import { Joke } from '../joke';
   styles: []
 })
 export class JokesItemComponent implements OnInit {
-  // @Input() joke: Joke;
-  @Input() joke;// = 'flow';
+  @Input() joke;
+
   constructor() { }
 
   ngOnInit() {
-    // this.joke = 'flow'
   }
 
 }
