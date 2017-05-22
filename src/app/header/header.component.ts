@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
       <div class="container">
         <div class="nav-left">
           <a class="nav-item">
-            <img src="https://naijacribz.files.wordpress.com/2014/09/joke.png">
+            <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/eye-face-joke-tongue-wink-emoji-stuckout-3f7f297d017b9bd3-512x512.png" alt="Jokes Logo">
           </a>
           <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
           <a class="nav-item is-tab is-hidden-mobile">Features</a>
